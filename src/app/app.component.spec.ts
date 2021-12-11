@@ -26,10 +26,5 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('sean-kelly-technical-test');
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('sean-kelly-technical-test app is running!');
-  });
+
 });
