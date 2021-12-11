@@ -1,14 +1,14 @@
 export interface Property {
-    propertyId: string;
-    groupLogoUrl: string;
-    bedsString: string;
-    price: any;
-    sizeStringMeters: number;
-    displayAddress: string;
-    propertyType: string;
-    bathRating?: string;
-    berRating?: string;
-    mainPhoto: string;
-    photos: Array<string>;
+    PropertyId: string;
+    GroupLogoUrl: string;
+    BedsString: string;
+    Price: any;
+    SizeStringMeters: number;
+    DisplayAddress: string;
+    PropertyType: string;
+    BathRating?: string;
+    BerRating?: string;
+    MainPhoto: string;
+    Photos: Array<string>;
 
 }
