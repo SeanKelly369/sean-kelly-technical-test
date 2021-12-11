@@ -12,6 +12,8 @@ export class MockdataService {
 
   public headers = new HttpHeaders();
 
+  public allProperties: Array<Property> = [];
+
   constructor(private http: HttpClient) { }
 
   public findAllProperties():  Observable<Property> {
@@ -20,8 +22,9 @@ export class MockdataService {
       this.headers.set('Access-Control-Allow-Methods', 'GET')
       this.headers.set('Content-Type', 'application/json')
       const request = this.http.get<Property>(`${this.URL}/SearchResults`, {headers: this.headers, responseType: 'json'});
-      request.subscribe( (response: Property) => {
-        console.log(response);
+      request.subscribe( (response: any) => {
+        this.allProperties = response;
+        console.log(this.allProperties);
 
       })
       return request;

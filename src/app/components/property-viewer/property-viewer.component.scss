@@ -1,0 +1,31 @@
+.propertyWrapper {
+    display: grid;
+    grid-template-columns: 1.66fr 3fr 8fr 1.66fr;
+    background-color: aquamarine;
+    margin: auto 0;
+}
+
+.details {
+    background-color: #ff0000;
+    margin: .3rem;
+}
+
+#agent-logo {
+
+}
+
+#main-image {
+    background-color: blue;
+    margin: .3rem;
+    min-height: 20rem;
+}
+
+.button-container {
+
+    display: grid;
+    grid-template-columns: 1.66fr 5fr 5fr 1.66fr;
+    background-color: red;
+    margin: auto;
+    // margin-left: 1.5rem;
+    // margin-right: 1.5rem;
+}

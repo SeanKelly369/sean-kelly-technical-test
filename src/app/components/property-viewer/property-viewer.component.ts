@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MockdataService } from 'src/services/mockdata/mockdata.service';
+import { Property } from '../../../interfaces/property';
 
 @Component({
   selector: 'app-property-viewer',
@@ -8,12 +9,14 @@ import { MockdataService } from 'src/services/mockdata/mockdata.service';
 })
 export class PropertyViewerComponent implements OnInit {
 
-  public temp: any;
+  public temp: Array<Property> = [];
   constructor(public mockDataService: MockdataService) { }
 
   ngOnInit(): void {
-    this.temp = this.mockDataService.findAllProperties();
-    console.log(this.temp);
+    this.mockDataService.findAllProperties().subscribe( (data: any) => {
+      this.temp = data;
+      console.log(this.temp);
+    })
   }
 
 }
