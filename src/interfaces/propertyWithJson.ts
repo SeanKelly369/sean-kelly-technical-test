@@ -13,4 +13,5 @@ export interface PropertyWithJson {
     mainPhoto: string;
     photos: Array<string>;
     rawJson: string;
+    size: string;
 }

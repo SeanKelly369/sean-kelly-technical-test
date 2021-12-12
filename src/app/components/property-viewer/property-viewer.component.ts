@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MockdataService } from 'src/services/mockdata/mockdata.service';
 import { Property } from '../../../interfaces/property';
 
@@ -9,10 +10,26 @@ import { Property } from '../../../interfaces/property';
 })
 export class PropertyViewerComponent implements OnInit {
 
+  public filterSearchForm = new FormGroup({
+    minPrice: new FormControl(''),
+    maxPrice: new FormControl('')
+  })
+
   public allProperties: Array<Property> = [];
   public numberOfBeds: number = 0;
   public numberOfBaths: number = 0;
-  constructor(public mockDataService: MockdataService) { }
+  public minPriceOptions: string[] = ['€150,000', '€200,000', '€250,000', '€300,000', '€350,000'];
+  public maxPriceOptions: string[] = ['€450,000', '€400,000', '€350,000', '€300,000', '€250,000'];
+
+  constructor(
+    public mockDataService: MockdataService,
+    private formBuilder: FormBuilder
+  ) { 
+    this.filterSearchForm = this.formBuilder.group({
+      minPrice: [ '' , Validators.requiredTrue],
+      maxPrice: ['']
+    })
+  }
 
   public ngOnInit(): void {
     this.mockDataService.findAllProperties().subscribe( (data: any) => {
@@ -71,6 +88,10 @@ export class PropertyViewerComponent implements OnInit {
     .subscribe(( data : any) => {
       console.log(data);
     })
+  }
+
+  public filterSearch() {
+
   }
 
 }

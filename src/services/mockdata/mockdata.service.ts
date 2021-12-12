@@ -15,7 +15,7 @@ export class MockdataService {
 
   public headers = new HttpHeaders();
 
-  public selectedProperty: number = 0;
+  public selectedProperty: any = 0;
   public allProperties: Array<Property> = [];
   public highLightedProperty: PropertyWithJson = {
     propertyId: '',
@@ -31,6 +31,7 @@ export class MockdataService {
     berRating: '',
     mainPhoto: '',
     photos: [],
+    size: '',
     rawJson: ''
 
   };
@@ -46,6 +47,7 @@ export class MockdataService {
   public updateProperties(response: any) {
     this.allProperties = response;
     const firstProperty = this.allProperties[0];
+    this.selectedProperty = this.allProperties[0];
     this.highLightedProperty = this.updateHighlightedProperty(firstProperty);
     console.log(this.highLightedProperty);
     return this.highLightedProperty;
@@ -141,6 +143,7 @@ export class MockdataService {
     this.highLightedProperty.bathString = firstProperty.BathString;
     this.highLightedProperty.mainPhoto = firstProperty.MainPhoto;
     this.highLightedProperty.photos = firstProperty.Photos;
+    this.highLightedProperty.size = firstProperty.SizeStringMeters;
     this.highLightedProperty.rawJson = firstProperty as unknown as string;
 
     return this.highLightedProperty;

@@ -8,14 +8,46 @@
                 default='../../../assets/no_main_photo.png' 
                 height='90rem'
                 (click)='selectProperty(property)'
-                >
+            >
         </span>
     </div>
-    <div>
     
-    </div>
-
 </div>
+
+<div>
+    <form [formGroup]='filterSearchForm' (ngSubmit)='filterSearch()'>
+    <div class='filterContainer'>
+        <div>
+        </div>
+
+    
+            <div>
+                <label>Minimum Price</label>
+                <select id='minPrice' formControlName='minPrice'>
+                    <option *ngFor='let price of minPriceOptions' 
+                        [ngValue]='price'>{{price}}</option>
+                </select>
+            </div>
+            <div>
+                <label>Maximum Price</label>
+                <select id='maxPrice' formControlName='maxPrice'>
+                    <option *ngFor='let price of maxPriceOptions' 
+                        [ngValue]='price'>{{price}}</option>
+                </select>
+            </div>
+    
+            <div>
+                <button type='submit' [disabled]='!filterSearchForm.valid'>
+                    Filter by Price range
+                </button>
+
+            </div>
+        </div>
+        <div></div>
+        
+    </form>
+</div>
+
 
 <div class='propertyWrapper'>
     <div>
@@ -68,21 +100,17 @@
     </div>
     <div class='button-container'>
         <div>
-
         </div>
         <div>
-            <button>View Brochure</button>
+            <button routerLink='/brochure'  routerLinkActive='active'>
+                    View Brochure
+            </button>
         </div>
         <div>
-            <button>View Gallery</button>
+            <button routerLink='/gallery'>View Gallery</button>
         </div>
         <div>
 
         </div>
-    </div>
-
-
-    <div>
-        <button (click)='filterByWithinPriceRange()'>Filter by within price range</button>
     </div>
 </div>

@@ -8,6 +8,8 @@ import { PropertyViewerComponent } from './components/property-viewer/property-v
 import { StringSplitPipe } from '../app/pipes/string-split.pipe';
 import { BrokenImageDirective } from './directives/broken-image.directive';
 import { BrochureComponent } from './components/brochure/brochure.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GalleryComponent } from './components/gallery/gallery.component';
 
 @NgModule({
   declarations: [
@@ -15,14 +17,19 @@ import { BrochureComponent } from './components/brochure/brochure.component';
     PropertyViewerComponent,
     StringSplitPipe,
     BrokenImageDirective,
-    BrochureComponent
+    BrochureComponent,
+    GalleryComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [
+    FormsModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,13 +1,16 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BrochureComponent } from './components/brochure/brochure.component';
+import { GalleryComponent } from './components/gallery/gallery.component';
 import { PropertyViewerComponent } from './components/property-viewer/property-viewer.component';
 
 const routes: Routes = [
 
-  { path: 'home', component: PropertyViewerComponent },
+  { path: 'property', component:  PropertyViewerComponent},
   { path: 'brochure', component: BrochureComponent },
-  { path: '', redirectTo: 'home' }
+  { path: 'gallery', component: GalleryComponent },
+  { path: '', redirectTo: 'property', pathMatch: 'full' }
+
 ];
 
 @NgModule({

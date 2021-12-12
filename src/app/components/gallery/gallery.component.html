@@ -1,0 +1,33 @@
+<div class='galleryWrapper'>
+    <div></div>
+    <div class='galleryWrapper'>
+        <div class='images'
+            *ngFor='let photo of gallery'>
+            <!-- <div> -->
+                <img src='{{photo}}' 
+                default='../../../assets/no_main_photo.png' 
+                width='100%'
+                >
+        </div>
+    </div>
+    <div></div>
+
+    <!-- Buttons container -->
+    <div class='button-container'>
+        <div>
+
+        </div>
+        <div>
+            <button routerLink='/brochure'  routerLinkActive='active'>
+                    View Brochure
+            </button>
+        </div>
+        <div>
+            <button routerLink='/property'>View Property</button>
+        </div>
+        <div>
+
+        </div>
+    </div>
+
+</div>

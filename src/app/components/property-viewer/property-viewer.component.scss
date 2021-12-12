@@ -1,24 +1,26 @@
 .listWrapper {
     display: grid;
     grid-template-columns: .3fr 5fr .3fr;
-    // background-color: blue;
-
 }
-// .propertyListContainer {
-//     overflow-x: scroll;
-//     overflow-y: none;
-//     max-height: 6rem;
-// }
+
+.propertyListContainer {
+    width: 100%;
+}
+
+.propertyListItem {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-row: 1fr .1fr;
+}
 
 .propertyWrapper {
     display: grid;
     grid-template-columns: 1.66fr 3fr 8fr 1.66fr;
-    // background-color: aquamarine;
     margin: auto 0;
 }
 
-
 .propertyList {
+    width: 14%;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: .28rem;
@@ -30,8 +32,14 @@
     animation-delay: .3;
 }
 
+.filterContainer {
+    display: grid;
+    grid-template-columns: 1.5fr 3fr 3fr 4fr .5fr;
+    padding-top: 1.2rem;
+    padding-bottom: 1.2rem;
+}
+
 .details {
-    // background-color: #ff0000;
     margin: .3rem;
 }
 
@@ -40,17 +48,6 @@
 }
 
 #main-image {
-    // background-color: blue;
     margin: .3rem;
     min-height: 20rem;
-}
-
-.button-container {
-
-    display: grid;
-    grid-template-columns: 1.66fr 5fr 5fr 1.66fr;
-    // background-color: red;
-    margin: auto;
-    // margin-left: 1.5rem;
-    // margin-right: 1.5rem;
 }
