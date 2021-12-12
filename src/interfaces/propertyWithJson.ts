@@ -1,12 +1,14 @@
 export interface PropertyWithJson {
     propertyId: string;
     groupLogoUrl: string;
-    bedsString: string;
-    price: any;
+    bedsString?: string;
+    bedNumber?: number;
+    price: string;
     sizeStringMeters: number;
     displayAddress: string;
     propertyType: string;
-    bathRating?: string;
+    bathString?: string;
+    bathNumber?: number;
     berRating?: string;
     mainPhoto: string;
     photos: Array<string>;

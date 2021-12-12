@@ -1,49 +1,67 @@
 
+<div class='listWrapper'>
+    <div>
+    </div>
+    <div class='propertyListContainer'>
+        <span class='propertyList' *ngFor='let property of allProperties;'>
+            <img src='{{property.MainPhoto}}' 
+                default='../../../assets/no_main_photo.png' 
+                height='90rem'
+                (click)='selectProperty(property)'
+                >
+        </span>
+    </div>
+    <div>
+    
+    </div>
+
+</div>
+
 <div class='propertyWrapper'>
     <div>
-        left
     </div>
 
     <div>
-        details
     </div>
 
     
-    <div id='agent-logo' class='details'>
-        Agent Logo:
+    <div class='details'>
+        <img id='agent-logo' 
+            src='{{mockDataService.highLightedProperty.groupLogoUrl}}' 
+            default='../../../assets/no_main_photo.png' 
+            height='66rem'>
     </div>
     <div>
-        right
     </div>
     <div>
-
     </div>
 
 
     <div>
         <div id='address' class='details'>
-            Address:
+            Address: {{mockDataService.highLightedProperty.displayAddress}}
         </div>
         <div id='price' class='details'>
-            Price:
+            Price: €{{mockDataService.highLightedProperty.price}}
         </div>
-        <div id='bed' class='details'>
-            Bed:
+        <div id='bed' class='details' *ngIf='numberOfBeds > 0'>
+            Beds: {{numberOfBeds }}
         </div>
-        <div id='baths' class='details'>
-            Baths
+        <div id='baths' class='details' *ngIf='numberOfBaths > 0'>
+            Baths: {{ numberOfBaths }}
         </div>
     </div>
     <div id='main-image'>
-        image
+        <img 
+            src='{{mockDataService.highLightedProperty.mainPhoto}}' 
+            default='../../../assets/no_main_photo.png' 
+            width='100%'>
     </div>
 
     <div>
-        right
     </div>
 
     <div>
-        left
     </div>
     <div>
 
@@ -59,9 +77,12 @@
             <button>View Gallery</button>
         </div>
         <div>
-            
+
         </div>
     </div>
 
 
+    <div>
+        <button (click)='filterByWithinPriceRange()'>Filter by within price range</button>
+    </div>
 </div>

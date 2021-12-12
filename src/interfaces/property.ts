@@ -6,7 +6,7 @@ export interface Property {
     SizeStringMeters: number;
     DisplayAddress: string;
     PropertyType: string;
-    BathRating?: string;
+    BathString?: string;
     BerRating?: string;
     MainPhoto: string;
     Photos: Array<string>;
