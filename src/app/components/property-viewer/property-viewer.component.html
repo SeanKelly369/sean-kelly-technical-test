@@ -73,7 +73,7 @@
     <div class='details'>
         <img id='agent-logo' 
             src='{{mockDataService.highLightedProperty.groupLogoUrl}}' 
-            default='../../../assets/no_main_photo.png' 
+            default='../../../assets/no_agent.png' 
             height='66rem'
         >
     </div>
@@ -118,7 +118,7 @@
             </span>
             <hr class='hrNarrowOne'>
         </div>
-        <div *ngIf="mockDataService.highLightedProperty.sizeStringMeters > 0" >
+        <div *ngIf='mockDataService.highLightedProperty.sizeStringMeters > 0' >
             Size: {{mockDataService.highLightedProperty.sizeStringMeters}}㎡
             <hr class='hrNarrowOne'>
         </div>
@@ -126,7 +126,7 @@
             Property Type: {{mockDataService.highLightedProperty.propertyType}}
             <hr class='hrNarrowOne'>
         </div>
-        <div>
+        <div *ngIf='hasBerRating'>
             Ber Rating: {{mockDataService.highLightedProperty.berRating}}
             <hr class='hrNarrowOne'>
         </div>

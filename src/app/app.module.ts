@@ -10,6 +10,7 @@ import { BrokenImageDirective } from './directives/broken-image.directive';
 import { BrochureComponent } from './components/brochure/brochure.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GalleryComponent } from './components/gallery/gallery.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { GalleryComponent } from './components/gallery/gallery.component';
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BrowserAnimationsModule
   ],
   providers: [
     FormsModule

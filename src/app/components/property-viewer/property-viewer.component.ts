@@ -16,6 +16,7 @@ export class PropertyViewerComponent implements OnInit {
   public sizeInFeet: string = '';
   public showFilterButtonWarning: boolean = false;
   public filterErrorMessage: string = '';
+  public hasBerRating: boolean = false;
 
   // Note:  This ended up not being required, but I left it in to show I'm aware of form validation
   valueValidator() {
@@ -94,6 +95,12 @@ export class PropertyViewerComponent implements OnInit {
     this.mockDataService.highLightedProperty.propertyId = selectedProperty.PropertyId;
     
     this.mockDataService.highLightedProperty.berRating = selectedProperty.BerRating;
+    if(this.mockDataService.highLightedProperty.berRating != undefined && 
+        this.mockDataService.highLightedProperty.berRating?.length > 0) {
+      this.hasBerRating = true;
+    } else {
+      this.hasBerRating = false;
+    }
     this.mockDataService.highLightedProperty.bedsString = selectedProperty.BedsString;
     
     
@@ -110,7 +117,7 @@ export class PropertyViewerComponent implements OnInit {
       this.mockDataService.highLightedProperty.sizeStringMeters = 
        parseFloat((this.mockDataService.highLightedProperty.sizeStringFeet * 0.3048).toFixed(2));
     }
-    
+    this.mockDataService.highLightedProperty.propertyType = selectedProperty.PropertyType;
     this.mockDataService.highLightedProperty.groupLogoUrl = selectedProperty.GroupLogoUrl;
     this.mockDataService.highLightedProperty.mainPhoto = selectedProperty.MainPhoto;
 
@@ -124,21 +131,11 @@ export class PropertyViewerComponent implements OnInit {
     }
   }
 
-  public filterByWithinPriceRange() {
-    this.mockDataService.findPropertiesByWithinPriceRange(300000, 420000)
-    .subscribe(( data : any) => {
-      console.log(data);
-    })
-  }
-
   public filterSearch() {
     const selectMax = (document.getElementById('maxPrice') as any);
     const selectMin = (document.getElementById('minPrice') as any);
-
     let minValueStr = selectMin.options[selectMin.selectedIndex].text;
-    console.log(minValueStr);
     let maxValueStr = selectMax.options[selectMax.selectedIndex].text;
-    console.log(maxValueStr)
     let minValueNum: number = 0;
     if(minValueStr !== null && minValueStr !== '') {
       minValueStr = minValueStr?.replace('€', '').replace(',', '');
@@ -155,7 +152,6 @@ export class PropertyViewerComponent implements OnInit {
         this.showFilterButtonWarning = false;
       });
     } else {
-      console.log('Minimum price must be greater than maximum price');
       this.showFilterButtonWarning = true;
       this.filterErrorMessage = 'Minimum price must be greater than maximum price';
     }

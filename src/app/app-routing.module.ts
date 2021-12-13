@@ -5,11 +5,18 @@ import { GalleryComponent } from './components/gallery/gallery.component';
 import { PropertyViewerComponent } from './components/property-viewer/property-viewer.component';
 
 const routes: Routes = [
+  {
+    path: '',
+    children: [
+      { path: 'property', component:  PropertyViewerComponent, data: {animationState: 'property'} },
+      { path: 'brochure', component: BrochureComponent, data: {animationState: 'brochure'} },
+      { path: 'gallery', component: GalleryComponent, data: {animationState: 'gallery'} },
+      { path: '', redirectTo: 'property', pathMatch: 'full' }
+    ]
+    
+  },
+  { path: '**', redirectTo: 'property', pathMatch: 'full' }
 
-  { path: 'property', component:  PropertyViewerComponent},
-  { path: 'brochure', component: BrochureComponent },
-  { path: 'gallery', component: GalleryComponent },
-  { path: '', redirectTo: 'property', pathMatch: 'full' }
 
 ];
 
