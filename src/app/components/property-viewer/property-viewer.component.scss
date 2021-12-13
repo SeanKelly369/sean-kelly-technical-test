@@ -1,3 +1,20 @@
+$brandBlueDark: #0082b6;
+$brandBlue: #009cdb;
+
+.hrNarrowOne {
+    border: 0;
+    height: 1px;
+    background: $brandBlueDark;
+    background-image: linear-gradient(to right, #ccc, $brandBlueDark, #ccc);
+}
+
+.hrNarrowTwo {
+    border: 0;
+    height: 2px;
+    background: $brandBlueDark;
+    background-image: linear-gradient(to right, #ccc, $brandBlueDark, #ccc);
+}
+
 .listWrapper {
     display: grid;
     grid-template-columns: .3fr 5fr .3fr;
@@ -39,8 +56,26 @@
     padding-bottom: 1.2rem;
 }
 
-.details {
-    margin: .3rem;
+.dropdownMenu {
+    margin-left: 1rem;
+    background-color: $brandBlue;
+    border-color: $brandBlueDark;
+    color:rgb(255, 255, 255);
+    padding-top: .3rem;
+    padding-left: .1rem;
+    padding-bottom: .1rem;
+    font-size: 1rem;
+    outline: none;
+}
+
+option {
+    background-color: rgb(255, 255, 255);
+    color: $brandBlue;
+}
+
+.errorMessage {
+    color: red;
+    text-align: center;
 }
 
 #agent-logo {
@@ -50,4 +85,25 @@
 #main-image {
     margin: .3rem;
     min-height: 20rem;
+}
+
+#propertyDetails {
+    padding-right: 1rem;
+}
+
+#price {
+    font-size: 1.2rem;
+    font-weight: 330;
+}
+
+#address {
+    color: $brandBlueDark;
+    font-size: 1.3rem;
+    font-weight: 360;
+}
+
+.icons {
+    margin-left: .5rem;
+    // padding-top: .2rem;
+    transform:translateY(5px)
 }

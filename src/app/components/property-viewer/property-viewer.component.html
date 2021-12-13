@@ -15,6 +15,11 @@
 </div>
 
 <div>
+    <hr>
+</div>
+
+
+<div>
     <form [formGroup]='filterSearchForm' (ngSubmit)='filterSearch()'>
     <div class='filterContainer'>
         <div>
@@ -22,22 +27,24 @@
 
     
             <div>
-                <label>Minimum Price</label>
-                <select id='minPrice' formControlName='minPrice'>
-                    <option *ngFor='let price of minPriceOptions' 
-                        [ngValue]='price'>{{price}}</option>
+                <label>Minimum Price:</label>
+                <select id='minPrice' class='dropdownMenu' formControlName='minPrice'>
+                    <option class='options' *ngFor='let price of minPriceOptions'>
+                        <span>{{price}}</span>
+                    </option>
                 </select>
             </div>
             <div>
-                <label>Maximum Price</label>
-                <select id='maxPrice' formControlName='maxPrice'>
-                    <option *ngFor='let price of maxPriceOptions' 
-                        [ngValue]='price'>{{price}}</option>
+                <label>Maximum Price:</label>
+                <select id='maxPrice' class='dropdownMenu' formControlName='maxPrice'>
+                    <option *ngFor='let price of maxPriceOptions'> 
+                        <span>{{price}}</span>
+                    </option>
                 </select>
             </div>
     
             <div>
-                <button type='submit' [disabled]='!filterSearchForm.valid'>
+                <button type='submit'>
                     Filter by Price range
                 </button>
 
@@ -46,8 +53,14 @@
         <div></div>
         
     </form>
+    <div class='errorMessage' *ngIf='showFilterButtonWarning === true'>
+        {{filterErrorMessage}}
+    </div>
 </div>
 
+<div>
+    <hr>
+</div>
 
 <div class='propertyWrapper'>
     <div>
@@ -61,7 +74,8 @@
         <img id='agent-logo' 
             src='{{mockDataService.highLightedProperty.groupLogoUrl}}' 
             default='../../../assets/no_main_photo.png' 
-            height='66rem'>
+            height='66rem'
+        >
     </div>
     <div>
     </div>
@@ -69,19 +83,54 @@
     </div>
 
 
-    <div>
+    <div id='propertyDetails'>
         <div id='address' class='details'>
             Address: {{mockDataService.highLightedProperty.displayAddress}}
+        </div>
+        <div>
+            <hr class='hrNarrowTwo'>
         </div>
         <div id='price' class='details'>
             Price: €{{mockDataService.highLightedProperty.price}}
         </div>
+        <hr class='hrNarrowOne'>
         <div id='bed' class='details' *ngIf='numberOfBeds > 0'>
             Beds: {{numberOfBeds }}
+
+            <span *ngFor='let num of numberOfBedsNum'>
+                <img 
+                    class='icons'
+                    src='../../../assets/bed.svg' 
+                    height='22rem'
+                >
+            </span>
         </div>
+        <hr class='hrNarrowOne'>
         <div id='baths' class='details' *ngIf='numberOfBaths > 0'>
             Baths: {{ numberOfBaths }}
+
+            <span *ngFor='let num of numberOfBathsNum'>
+                <img 
+                    class='icons'
+                    src='../../../assets/bath.svg' 
+                    height='20rem'
+                >
+            </span>
+            <hr class='hrNarrowOne'>
         </div>
+        <div *ngIf="mockDataService.highLightedProperty.sizeStringMeters > 0" >
+            Size: {{mockDataService.highLightedProperty.sizeStringMeters}}㎡
+            <hr class='hrNarrowOne'>
+        </div>
+        <div>
+            Property Type: {{mockDataService.highLightedProperty.propertyType}}
+            <hr class='hrNarrowOne'>
+        </div>
+        <div>
+            Ber Rating: {{mockDataService.highLightedProperty.berRating}}
+            <hr class='hrNarrowOne'>
+        </div>
+        
     </div>
     <div id='main-image'>
         <img 

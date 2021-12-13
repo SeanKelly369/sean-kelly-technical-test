@@ -1,3 +1,7 @@
+$brandBlue: #009cdb;
+$brandBlueLight: #02b6fd;
+$brandBlueDark: #0082b6;
+
 body {
     background-color: rgb(238, 238, 238);
     font-family: Arial, Helvetica, sans-serif;
@@ -14,11 +18,11 @@ button {
     font-style: normal;
     font-weight: 400;
     border-radius: .6rem;
-    border-color: rgb(0, 0, 214);
-    background-color: blue;
+    border-color: $brandBlueDark;
+    background-color: $brandBlue;
     letter-spacing: 0.1px;
     text-transform: capitalize;
-    padding: .3rem .45rem .3rem .45rem;
+    padding: .38rem .45rem .38rem .45rem;
     border: none;
     outline: none;
     margin-left: 1.5rem;
@@ -26,7 +30,7 @@ button {
 }
 
 button:hover {
-    background-color: rgb(0, 0, 214);
+    background-color: $brandBlueLight;
     color: rgb(219, 219, 219);
     transition: 0.3s;
     cursor: pointer;
@@ -37,4 +41,11 @@ button:hover {
     grid-template-columns: 1.66fr 5fr 5fr 1.66fr;
     margin: auto;
     margin-top: 3rem;
+}
+
+hr {
+    border: 0;
+    height: 3px;
+    background: $brandBlueDark;
+    background-image: linear-gradient(to right, #ccc, $brandBlueDark, #ccc);
 }

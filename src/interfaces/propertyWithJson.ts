@@ -5,6 +5,7 @@ export interface PropertyWithJson {
     bedNumber?: number;
     price: string;
     sizeStringMeters: number;
+    sizeStringFeet: number;
     displayAddress: string;
     propertyType: string;
     bathString?: string;

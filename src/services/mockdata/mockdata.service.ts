@@ -24,6 +24,7 @@ export class MockdataService {
     bedNumber: 0,
     price: '',
     sizeStringMeters: 0,
+    sizeStringFeet: 0,
     displayAddress: '',
     propertyType: '',
     bathString: '',
@@ -77,6 +78,7 @@ export class MockdataService {
         .filter( (f:Property) => f.Price >= minPrice && f.Price <= maxPrice)))
       .subscribe( (response: any) => {
         console.log(response)
+        this.allProperties = response;
         this.updateProperties(response);
       })
       return request;
@@ -87,33 +89,17 @@ export class MockdataService {
   }
 
   // Filter results under specified price
-  public findPropertiesBelowAPrice(maxPrice: number): any {
+  public findPropertiesByPriceRange(minPrice: number, maxPrice: number): any {
     try {
       this.setHeaders();
       const request = this.http.get<any>(`${this.URL}/SearchResults`,
       {headers: this.headers, responseType: 'json'});
       request.pipe(map(data => data
-        .filter( (f: Property) => f.Price <= maxPrice)))
+        .filter( (f: Property) => f.Price >= minPrice && f.Price <= maxPrice)))
       .subscribe( (response: any) => {
+        console.log(response);
         this.updateProperties(response);
-      })
-      return request;
-    } catch(error) {
-      console.error(error);
-      return EMPTY;
-    }
-  }
-
-  // Filter results over a specified price
-  public findPropertiesOverAPrice(minPrice: number) {
-    try {
-      this.setHeaders();
-      const request = this.http.get<any>(`${this.URL}/SearchResults`, 
-      {headers: this.headers, responseType: 'json'});
-      request.pipe(map(data => data
-        .filter( (f: Property) => f.Price >= minPrice)))
-      .subscribe( (response: any) => {
-        this.updateProperties(response);
+        return response;
       })
       return request;
     } catch(error) {
