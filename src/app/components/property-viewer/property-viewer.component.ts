@@ -156,16 +156,13 @@ export class PropertyViewerComponent implements OnInit {
   }
 
   public sortProperties() {
-
     if(this.sortPriceByHighest) {
       this.allProperties.sort( (a: Property, b: Property) => (a.Price < b.Price) ? 1 : -1 )
     } else {
       this.allProperties.sort( (a: Property, b: Property) => (a.Price > b.Price) ? 1 : -1 )
 
     }
-    console.log(this.allProperties);
     this.sortPriceByHighest = !this.sortPriceByHighest;
-
   }
 
 }
