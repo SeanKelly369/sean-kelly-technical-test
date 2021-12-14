@@ -17,7 +17,7 @@ $brandBlue: #009cdb;
 
 .listWrapper {
     display: grid;
-    grid-template-columns: .3fr 5fr .3fr;
+    grid-template-columns: .3fr auto .3fr;
 }
 
 .propertyListContainer {
@@ -36,11 +36,28 @@ $brandBlue: #009cdb;
     margin: auto 0;
 }
 
+.propertyPrices {
+    position: absolute;
+    z-index: 3;
+    color: white;
+    bottom: 21px;
+    background-color: rgba(0, 0, 0, 0.233);
+    width: 94%;
+    min-width: 80%;
+    padding-top: 2px;
+    padding-left: .28rem;
+
+}
+
 .propertyList {
-    width: 14%;
+    width: 100%;
+    min-width: 100%;
     padding-top: 1rem;
     padding-bottom: 1rem;
     padding-left: .28rem;
+    position: relative;
+    display: inline;
+    white-space:nowrap;
 }
 
 .propertyList:hover {
@@ -76,6 +93,11 @@ option {
 .errorMessage {
     color: red;
     text-align: center;
+}
+
+#sortContainer {
+    display: flex;
+    justify-content: center;
 }
 
 #agent-logo {
