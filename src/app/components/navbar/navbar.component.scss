@@ -1,0 +1,25 @@
+#logo {
+    margin-left: .2rem;
+    
+    transform: translateY(40);
+}
+
+#navbarContainer {
+    background-color: rgb(255, 255, 255);
+    transform: translateY(-54px);
+    box-shadow: 0px 4px 2px  1px rgba(0,0, 0, .1);
+    height: 6rem;
+
+}
+
+.button-container {
+    padding-top: .8rem;
+    transform: translateY(16px);
+}
+
+button {
+    border-radius: 2px;
+    width: 12rem;
+    transform: translateY(10px);
+    max-width: 400px;
+}
