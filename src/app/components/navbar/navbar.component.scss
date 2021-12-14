@@ -9,8 +9,15 @@
     transform: translateY(-54px);
     box-shadow: 0px 4px 2px  1px rgba(0,0, 0, .1);
     height: 6rem;
+    min-width: 43rem;
 
 }
+
+#buttonsContiner {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-left: 5rem;
+} 
 
 .button-container {
     padding-top: .8rem;
@@ -22,6 +29,21 @@ button {
     width: 12rem;
     transform: translateY(10px);
     max-width: 400px;
+}
+
+#propertyButton, #brochureButton, #galleryButton {
+    font-size: .8rem;
+}
+
+@media only screen and (max-width: 1365px) {
+    #propertyButton, #brochureButton, #galleryButton {
+        width: auto;
+    }
+
+    #buttonsContiner {
+        padding-left: 0;
+    }
+    
 }
 
 #galleryButton {
