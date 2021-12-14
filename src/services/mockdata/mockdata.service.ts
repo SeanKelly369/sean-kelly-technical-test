@@ -66,7 +66,6 @@ export class MockdataService {
     }
   }
 
-
   // Filter results under specified price
   public findPropertiesByPriceRange(minPrice: number, maxPrice: number): any {
     try {

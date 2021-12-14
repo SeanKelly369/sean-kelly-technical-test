@@ -17,6 +17,7 @@ export class PropertyViewerComponent implements OnInit {
   public showFilterButtonWarning: boolean = false;
   public filterErrorMessage: string = '';
   public hasBerRating: boolean = false;
+  public sortPriceByHighest:boolean = true;
 
   // Note:  This ended up not being required, but I left it in to show I'm aware of form validation
   valueValidator() {
@@ -144,7 +145,7 @@ export class PropertyViewerComponent implements OnInit {
       maxValueNum = parseInt( (maxValueStr?.replace('€', '').replace(',', '')) );
     }
     if(maxValueNum > minValueNum) {
-      this.mockDataService.findPropertiesByPriceRange(minValueNum, maxValueNum).subscribe( (data: any) => {
+      this.mockDataService.findPropertiesByPriceRange(minValueNum, maxValueNum).subscribe( () => {
         this.allProperties = this.mockDataService.allProperties;
         this.showFilterButtonWarning = false;
       });
@@ -152,6 +153,19 @@ export class PropertyViewerComponent implements OnInit {
       this.showFilterButtonWarning = true;
       this.filterErrorMessage = 'Minimum price must be greater than maximum price';
     }
+  }
+
+  public sortProperties() {
+
+    if(this.sortPriceByHighest) {
+      this.allProperties.sort( (a: Property, b: Property) => (a.Price < b.Price) ? 1 : -1 )
+    } else {
+      this.allProperties.sort( (a: Property, b: Property) => (a.Price > b.Price) ? 1 : -1 )
+
+    }
+    console.log(this.allProperties);
+    this.sortPriceByHighest = !this.sortPriceByHighest;
+
   }
 
 }

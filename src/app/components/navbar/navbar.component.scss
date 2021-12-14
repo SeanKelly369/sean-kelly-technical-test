@@ -23,3 +23,27 @@ button {
     transform: translateY(10px);
     max-width: 400px;
 }
+
+#galleryButton {
+    border-color: rgb(5, 83, 2);
+    background-color: rgb(6, 148, 1);
+}
+
+#galleryButton:hover {
+    background-color: rgb(8, 194, 2);
+    color: rgb(219, 219, 219);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+#brochureButton {
+    border-color: rgb(60, 2, 83);
+    background-color: rgb(123, 1, 148);
+}
+
+#brochureButton:hover {
+    background-color: rgb(117, 2, 194);
+    color: rgb(219, 219, 219);
+    transition: 0.3s;
+    cursor: pointer;
+}

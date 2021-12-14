@@ -4,6 +4,7 @@
     </div>
     <div class='propertyListContainer'>
         <span class='propertyList' *ngFor='let property of allProperties;'>
+            <span class='propertyPrices'>€{{property.Price}}</span>
             <img src='{{property.MainPhoto}}' 
                 default='../../../assets/no_main_photo.png' 
                 height='90rem'
@@ -49,10 +50,21 @@
                 </button>
 
             </div>
+
         </div>
-        <div></div>
+        <div>
+            
+        </div>
         
     </form>
+    <div id='sortContainer'>
+        <button (click)='sortProperties()'>
+            <span *ngIf='sortPriceByHighest'>Sort by highest priced Property</span>
+            <span *ngIf='!sortPriceByHighest'>Sort by lowest priced Property</span>
+
+        </button>
+
+    </div>
     <div class='errorMessage' *ngIf='showFilterButtonWarning === true'>
         {{filterErrorMessage}}
     </div>
