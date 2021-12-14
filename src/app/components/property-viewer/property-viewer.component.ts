@@ -60,11 +60,9 @@ export class PropertyViewerComponent implements OnInit {
   public ngOnInit(): void {
     this.mockDataService.findAllProperties().subscribe( (data: any) => {
       this.allProperties = data;
-      console.log(this.allProperties);
       this.numberOfBeds = this.mockDataService.highLightedProperty
       .bedsString?.toString().split(' ')[0] as unknown as number;//
       this.numberOfBedsNum.length = this.numberOfBeds;
-      console.log(this.mockDataService.highLightedProperty.bedsString?.toString().split(' ')[0]);
       
       if(this.mockDataService.highLightedProperty.bathString !== undefined) {
         this.numberOfBaths = this.mockDataService.highLightedProperty
@@ -82,7 +80,6 @@ export class PropertyViewerComponent implements OnInit {
   }
 
   public selectProperty(selectedProperty: any) {
-    console.log(selectedProperty);
     this.mockDataService.selectedProperty = selectedProperty;
     this.mockDataService.highLightedProperty.price = selectedProperty.Price;
     this.mockDataService.highLightedProperty.bathString = selectedProperty.BathString;

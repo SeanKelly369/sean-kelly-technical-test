@@ -12,7 +12,6 @@ export class BrochureComponent implements OnInit {
 
   ngOnInit(): void {
     this.mockDataService.selectedProperty;
-    console.log(this.mockDataService.selectedProperty)
   }
 
 }

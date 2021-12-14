@@ -13,11 +13,7 @@ export class GalleryComponent implements OnInit {
   constructor(public mockDataService: MockdataService) { }
 
   ngOnInit(): void {
-    console.log(this.mockDataService.highLightedProperty);
     this.gallery = this.mockDataService.highLightedProperty.photos;
-    console.log(this.gallery);
-
-    
   }
 
 }

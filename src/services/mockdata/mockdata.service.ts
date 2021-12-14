@@ -34,7 +34,6 @@ export class MockdataService {
     photos: [],
     size: '',
     rawJson: ''
-
   };
 
   constructor(private http: HttpClient) { }
@@ -50,7 +49,6 @@ export class MockdataService {
     const firstProperty = this.allProperties[0];
     this.selectedProperty = this.allProperties[0];
     this.highLightedProperty = this.updateHighlightedProperty(firstProperty);
-    console.log(this.highLightedProperty);
     return this.highLightedProperty;
   }
 
@@ -68,25 +66,6 @@ export class MockdataService {
     }
   }
 
-  // Filter results withing price range
-  public findPropertiesByWithinPriceRange(minPrice: number, maxPrice: number) {
-    try {
-      this.setHeaders();
-      const request = this.http.get<any>(`${this.URL}/SearchResults`, 
-      {headers: this.headers, responseType: 'json'});
-      request.pipe(map(data => data
-        .filter( (f:Property) => f.Price >= minPrice && f.Price <= maxPrice)))
-      .subscribe( (response: any) => {
-        console.log(response)
-        this.allProperties = response;
-        this.updateProperties(response);
-      })
-      return request;
-    } catch(error) {
-      console.error(error);
-      return EMPTY;
-    }
-  }
 
   // Filter results under specified price
   public findPropertiesByPriceRange(minPrice: number, maxPrice: number): any {
@@ -97,7 +76,6 @@ export class MockdataService {
       request.pipe(map(data => data
         .filter( (f: Property) => f.Price >= minPrice && f.Price <= maxPrice)))
       .subscribe( (response: any) => {
-        console.log(response);
         this.updateProperties(response);
         return response;
       })
